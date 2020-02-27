@@ -58,7 +58,7 @@ if($jwt){
         $stmt->bindParam(5, $product_expiry_date);
         $stmt->bindParam(6, $product_created_date);
 
-        $stmt->execute();
+        $result = $stmt->execute();
         $num = $stmt->rowCount();
 
         $rows = array();
@@ -67,7 +67,8 @@ if($jwt){
             http_response_code(200);
             echo json_encode(array(
                 "message" => "Product added Succesfully",
-                "status" => "Success"
+                "status" => "Success",
+                "id" => $conn->lastInsertId()
             
             ));
         }else{
