@@ -64,16 +64,17 @@ if($jwt){
         $rows = array();
 
         if($num == 1){
+            http_response_code(200);
             echo json_encode(array(
                 "message" => "Product added Succesfully",
-                "status" => "Success",
-                "products" => $num
+                "status" => "Success"
+            
             ));
         }else{
+            http_response_code(403);
             echo json_encode(array(
                 "message" => "Failed",
-                "status" => "Error",
-                "products" => $num
+                "status" => "Error"
             ));
         }
 
@@ -90,6 +91,7 @@ if($jwt){
 }
 
 }else{
+    http_response_code(401);
     echo json_encode(array(
         "message" => "Access denied.",
         "error" => "error"

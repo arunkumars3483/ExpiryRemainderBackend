@@ -53,7 +53,7 @@ if($jwt){
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             array_push($rows, $row);
           }
-
+        http_response_code(200);
         echo json_encode(array(
             "message" => "Access granted:",
             "status" => "Success",
