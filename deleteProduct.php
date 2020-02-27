@@ -42,7 +42,7 @@ if($jwt){
 
         $table_name = 'Products';
 
-        $prod_id = $data->id;
+        $prod_id = $_GET["id"];
         
         $query = "DELETE FROM " . $table_name . " WHERE id = ? AND user_id = ?";
 
